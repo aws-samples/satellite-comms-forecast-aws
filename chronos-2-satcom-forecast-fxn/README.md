@@ -24,13 +24,15 @@ inference orchestration, and a Streamlit UI for capacity predictions visualizati
 ### 1. Deploy Chronos-2 SageMaker Endpoint
 
 1. Navigate to the [SageMaker Console](https://console.aws.amazon.com/sagemaker/)
-2. Go to **Inference** > **Models** > **Create model**
-3. Search for "Chronos-2" in the AWS Marketplace or JumpStart models
-4. Select the Chronos-2 model and click **Deploy**
-5. Configure the endpoint:
+2. Click on `SageMaker Studio` in the left hand navigation bar
+3. Launch a Personal Studio instance - if you have never done this you will be prompted for a user profile and domain.
+4. Click on `Models` in the left hand navigation bar
+5. Search for "Chronos-2" in the search bar
+6. Select the Chronos-2 model and click **Deploy**
+7. Configure the endpoint:
    - Instance type: `ml.g5.xlarge` or larger
    - Endpoint name: Note this for later use
-6. Wait for deployment to complete (5-10 minutes)
+8. Wait for deployment to complete (5-10 minutes)
 
 ### 2. Package and Upload Lambda Code
 
