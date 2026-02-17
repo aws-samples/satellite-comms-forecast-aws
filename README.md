@@ -29,6 +29,10 @@ historical bandwidth usage data and related time series such as weather metrics.
 An accurate forecasting strategy can lead to lower costs (higher bandwidth utilization), and higher passenger 
 satisfaction (e.g. successful capacity handling of demand surges). 
 
+> [!NOTE]
+> A new satellite capacity forecasting method using a Time-Series Foundational Model is now available. The major advantage
+> is that you do not need to (re)train models. Check it out at [Chronos-2 satcom forecast](./chronos-2-satcom-forecast-fxn/README.md) 
+
 ### Repository Structure
 
 ```
@@ -38,6 +42,9 @@ satellite-comms-forecast-aws/
 ├── satcom-timeseries-datagen-cfn.yaml       # generate Lambda for Sage Autopliot timeseries data-gen
 ├── noaa-ndbc-weather-fxn/           # Lambda fxn to parse NOAA Buoy files for air-pressure
 ├── noaa-ndbc-weather-cfn.yaml       # generate Lambda to parse NOAA Buoy files for air-pressure
+
+├── chronos-2-notebook/              # Capacity forecasting using TSFM Chronos-2 - SageMaker Notebook
+├── chronos-2-satcom-forecast-fxn/       # Lambda in SageMaker runtime and Streamlit UI for TSFM forecasting
 
 ├── forecast-notebook/              # (legacy) Previous notebook based on Amazon Forecast
 ├── satcom-forecast-datagen-fxn/    # Lambda fxn to generate training data for the model
