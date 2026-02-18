@@ -3,13 +3,13 @@
 This solution provides time series forecasting for satellite capacity using Amazon SageMaker's Chronos-2 TimeSeries Foundational Model, AWS Lambda for 
 inference orchestration, and a Streamlit UI for capacity predictions visualization.
 
+![Streamlit UI of satellite capacity forecasting](images/Screenshot%202026-02-17%20172306.png)
+
 ## Architecture
 
 - **SageMaker Endpoint**: Hosts the Chronos-2 foundation model for time series forecasting
 - **Lambda Function**: Orchestrates data loading from S3 and invokes the SageMaker endpoint
 - **Streamlit UI**: Interactive web interface for generating and visualizing forecasts
-
-![Streamlit UI of satellite capacity forecasting](images/Screenshot%202026-02-17%20172306.png)
 
 
 ## Prerequisites
