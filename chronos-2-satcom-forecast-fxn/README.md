@@ -140,6 +140,7 @@ The web interface provides:
   - Ground truth (green)
   - Forecast (violet)
   - Prediction interval (shaded area between 0.1 and 0.9 quantiles)
+- Prediction Accuracy (Weighted Absolute Percentage Error)
 
 **Customization:**
 
