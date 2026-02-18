@@ -9,7 +9,7 @@ inference orchestration, and a Streamlit UI for capacity predictions visualizati
 - **Lambda Function**: Orchestrates data loading from S3 and invokes the SageMaker endpoint
 - **Streamlit UI**: Interactive web interface for generating and visualizing forecasts
 
-![Streamlit UI of satellite capacity forecasting](images/Screenshot%202026-02-16%20144116.png)
+![Streamlit UI of satellite capacity forecasting](images/Screenshot%202026-02-17%20172306.png)
 
 
 ## Prerequisites
