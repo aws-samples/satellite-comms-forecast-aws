@@ -3,10 +3,33 @@ import boto3
 import json
 import os
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from io import StringIO
 
 st.title("Satellite Capacity Forecast")
+
+def calculate_wape(predicted_df, actual_df, timeseries_id, id_column, target):
+    actual_values = actual_df[actual_df[id_column] == timeseries_id][target].values
+    predicted_values = predicted_df[predicted_df[id_column] == timeseries_id]['predictions'].values
+    
+    numerator = np.sum(np.abs(actual_values - predicted_values))
+    denominator = np.sum(np.abs(actual_values))
+    
+    if denominator == 0:
+        return np.sum(np.abs(actual_values - predicted_values))
+    
+    return (numerator / denominator) * 100
+
+def categorize_wape(wape):
+    if wape <= 5:
+        return "Gold Standard"
+    elif wape <= 10:
+        return "Strong"
+    elif wape <= 25:
+        return "Acceptable"
+    else:
+        return "Poor"
 
 def plot_forecast(
     context_df: pd.DataFrame,
@@ -126,3 +149,18 @@ if st.button("Generate Forecast"):
         timestamp_column="timestamp"
     )
     st.pyplot(fig)
+    
+    # Calculate and display WAPE
+    wape = calculate_wape(pred_df, test_df, selected_item_id, "beam", "mHz")
+    category = categorize_wape(wape)
+    
+    if wape <= 10:
+        color = "green"
+    elif wape <= 25:
+        color = "orange"
+    else:
+        color = "red"
+    
+    st.subheader("Forecast Accuracy")
+    st.metric(label=f"Weighted Absolute Percentage Error (WAPE) for {selected_item_id}", value=f"{wape:.2f}%", delta=None)
+    st.markdown(f"**Accuracy Category:** :{color}[{category}]")
