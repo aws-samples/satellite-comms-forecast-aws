@@ -21,7 +21,8 @@ inference orchestration, and a Streamlit UI for capacity predictions visualizati
 
 ## Deployment
 
-### 1. Deploy Chronos-2 SageMaker Endpoint
+### 1. Deploy Chronos-2 SageMaker Endpoint 
+#### Console method
 
 1. Navigate to the [SageMaker Console](https://console.aws.amazon.com/sagemaker/)
 2. Click on `SageMaker Studio` in the left hand navigation bar
@@ -33,6 +34,13 @@ inference orchestration, and a Streamlit UI for capacity predictions visualizati
    - Instance type: `ml.g5.xlarge` or larger
    - Endpoint name: Note this for later use
 8. Wait for deployment to complete (5-10 minutes)
+
+OR, 
+
+#### Notebook deployment method
+
+1. deploy via this [SageMaker Studio Jupyter notebook](../chronos-2-notebook/deploy-chronos-2-jumpstartmodel.ipynb)
+2. Wait for deployment to complete (5-10 minutes)
 
 ### 2. Package and Upload Lambda Code
 
